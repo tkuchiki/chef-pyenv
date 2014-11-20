@@ -4,16 +4,16 @@ git node[:pyenv][:install_path] do
   action           node[:pyenv][:action]
   repository       node[:pyenv][:repo_uri]
   revision         node[:pyenv][:revision]
-  depth            node[:pyenv][:depth]            if node[:pyenv][:depth]
-  destination      node[:pyenv][:destination]      if node[:pyenv][:destination]
-  enable_checkout  node[:pyenv][:enable_checkout]  if node[:pyenv][:enable_checkout]
-  enable_submodule node[:pyenv][:enable_submodule] if node[:pyenv][:enable_submodule]
-  user             node[:pyenv][:user]             if node[:pyenv][:user]
-  group            node[:pyenv][:group]            if node[:pyenv][:group]
-  provider         node[:pyenv][:provider]         if node[:pyenv][:provider]
-  remote           node[:pyenv][:remote]           if node[:pyenv][:remote]
-  ssh_wrapper      node[:pyenv][:ssh_wrapper]      if node[:pyenv][:ssh_wrapper]
-  timeout          node[:pyenv][:timeout]          if node[:pyenv][:timeout]
+  depth            node[:pyenv][:depth]            unless node[:pyenv][:depth].nil?
+  destination      node[:pyenv][:destination]      unless node[:pyenv][:destination].nil?
+  enable_checkout  node[:pyenv][:enable_checkout]  unless node[:pyenv][:enable_checkout].nil?
+  enable_submodule node[:pyenv][:enable_submodule] unless node[:pyenv][:enable_submodule].nil?
+  user             node[:pyenv][:user]             unless node[:pyenv][:user].nil?
+  group            node[:pyenv][:group]            unless node[:pyenv][:group].nil?
+  provider         node[:pyenv][:provider]         unless node[:pyenv][:provider].nil?
+  remote           node[:pyenv][:remote]           unless node[:pyenv][:remote].nil?
+  ssh_wrapper      node[:pyenv][:ssh_wrapper]      unless node[:pyenv][:ssh_wrapper].nil?
+  timeout          node[:pyenv][:timeout]          unless node[:pyenv][:timeout].nil?
 end
 
 install_python_build_env = {}
